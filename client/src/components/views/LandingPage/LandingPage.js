@@ -40,7 +40,8 @@ function LandingPage(props) {
                 <MainImage
                     image={`${IMAGE_BASE_URL}w1280${MainMovieImage.backdrop_path}`}
                     title={MainMovieImage.original_title}
-                    description={MainMovieImage.overview} />
+                    description={MainMovieImage.overview}
+                />
             }
             <div style={{ width: '85%', margin: '1rem auto' }}>
                 <h2>Movies by latest</h2>
@@ -50,6 +51,7 @@ function LandingPage(props) {
                     {Movies && Movies.map((movie, index) => (
                         <React.Fragment key={index}>
                             <GridCards
+                                landingPage
                                 image={movie.poster_path ?
                                     `${IMAGE_BASE_URL}w400${movie.poster_path}` : null}
                                 movieId={movie.id}
