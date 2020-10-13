@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { withRouter } from 'react-router-dom';
+import { Row } from 'antd';
 import { API_URL, API_KEY, IMAGE_BASE_URL } from '../../Config'
 import MainImage from '../LandingPage/Section/MainImage';
 import MovieInfo from './Sections/MovieInfo';
 import GridCards from '../commons/GridCard';
-import { Row } from 'antd';
+import Favorite from './Sections/Favorite';
 
 function MovieDetail(props) {
 
@@ -48,6 +49,9 @@ function MovieDetail(props) {
             }
             {/* Body */}
             <div style={{ width: '85%', margin: '1rem auto' }}>
+                <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+                    <Favorite movieInfo={Movie} movieId={movieId} userFrom={localStorage.getItem('userId')} />
+                </div>
                 {/* Movie Info */}
                 <MovieInfo movie={Movie} />
                 <br />
